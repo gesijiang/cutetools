@@ -26,6 +26,7 @@ def bind_command(name, func):
 def init():
     # 退出shell
     bind_command("exits", exits)
+    bind_command("portscan", portscan)
 
 
 '''shell循环接受命令'''
@@ -123,7 +124,7 @@ def cmd_execute(meta_cmd):
 
     # 调用相应函数
     if cmdname in bind_map:
-        return bind_map[cmdname](cmdargs);
+        return bind_map[cmdname](cmdargs)
 
     # 监听 Ctrl-C 信号
     signal.signal(signal.SIGINT, handler_kill)
